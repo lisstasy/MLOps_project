@@ -27,6 +27,13 @@ class MSE(Evaluation):
     Evaluation Strategy that uses Mean Squared Error
     """
     def calculate_scores(self, y_true: np.ndarray, y_pred: np.ndarray):
+        """
+        Args:
+            y_true: np.ndarray
+            y_pred: np.ndarray
+        Returns:
+            mse: float
+        """
         try: 
             logging.info("Calculating MSE")
             mse = mean_squared_error(y_true, y_pred)
@@ -36,11 +43,18 @@ class MSE(Evaluation):
             logging.error("Error in calculating MSE: {}".format(e))
             raise e
         
-class R2(Evaluation):
+class R2Score(Evaluation):
     """
     Evaluation Strategy that uses R2 Score
     """
     def calculate_scores(self, y_true: np.ndarray, y_pred: np.ndarray):
+        """
+        Args:
+            y_true: np.ndarray
+            y_pred: np.ndarray
+        Returns:
+            r2_score: float
+        """
         try: 
             logging.info("Calculating R2 Score")
             r2 = r2_score(y_true, y_pred)
@@ -55,6 +69,13 @@ class RMSE(Evaluation):
     Evaluation Strategy that uses Root Mean Squared Error
     """
     def calculate_scores(self, y_true: np.ndarray, y_pred: np.ndarray):
+        """
+        Args:
+            y_true: np.ndarray
+            y_pred: np.ndarray
+        Returns:
+            rmse: float
+        """
         try: 
             logging.info("Calculating RMSE")
             rmse = mean_squared_error(y_true, y_pred, squared=False)

@@ -69,7 +69,7 @@ class DataDivideStrategy(DataStrategy):
             X_train, X_test, y_train, y_test = train_test_split(
                 X, y, test_size=0.2, random_state=42
             )
-            return X_train, X_test, y_train, y_test
+            return X_train, X_test, y_train, y_test 
         except Exception as e:
             logging.error("Error in dividing data: {}".format(e))
             raise e
@@ -82,9 +82,9 @@ class DataCleaning:
 
     def __init__(self, data: pd.DataFrame, strategy: DataStrategy) -> None:
         """Initializes the DataCleaning class with a specific strategy."""
-        self.df = data
+        self.data = data
         self.strategy = strategy
 
     def handle_data(self) -> Union[pd.DataFrame, pd.Series]:
         """Handle data based on the provided strategy"""
-        return self.strategy.handle_data(self.df)
+        return self.strategy.handle_data(self.data)
